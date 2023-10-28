@@ -8,14 +8,22 @@
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_ceyto")
 
-[node name="Background" type="TextureRect" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_jlyuo")
 stretch_mode = 1
 
 [node name="Maze" parent="." instance=ExtResource("4_x77dr")]
-position = Vector2(400, 149)
+position = Vector2(464, 179)
 
 [node name="Player" parent="." instance=ExtResource("2_pu0qc")]
 position = Vector2(521, 190)
+
+[connection signal="body_exited" from="Maze" to="." method="_on_maze_body_exited"]
